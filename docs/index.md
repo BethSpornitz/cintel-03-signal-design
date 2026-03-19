@@ -23,7 +23,7 @@ to get these projects running on your machine.
 ## Custom Project - Module 3
 
 ### Dataset
-I worked with two datasets for this project.  The first dataset was our required dataset and the second dataset was just for fun, so that i was sure I understood everything.
+I worked with two datasets for this project.  The first dataset was our required dataset and the second dataset was just for fun.
 
 The first dataset was our provided system_metrics dataset and it contained system performance metrics with columns for requests, errors, and total latency. Each row represented one observation.
 
