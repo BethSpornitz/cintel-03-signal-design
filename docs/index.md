@@ -91,7 +91,7 @@ If a new product launch or promotion drives a spike in clicks, the `traffic_flag
 
 ---
 
-- ### Experiments
+### Experiments
 For the system metrics project, I added new derived signals and flag columns. I adjusted thresholds so that the output would more clearly identify rows with higher error behavior or performance concerns.
 
 For the website traffic project, I applied the same process to a different kind of dataset. Since the traffic data was event level, I first grouped it by date to create daily metrics. Then I added ratio signals, flags, and a composite score to make the daily traffic patterns easier to understand.
