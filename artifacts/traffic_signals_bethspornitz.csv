@@ -1,0 +1,8 @@
+date,clicks,unique_countries,unique_cities,unique_links,link_diversity_ratio,traffic_flag,reach_flag,traffic_attention_flag,traffic_score,traffic_level
+2021-08-19,35361,183,4132,2859,0.08085178586578434,high_traffic,global_reach,needs_attention,5.3661,very_high
+2021-08-20,34112,171,3833,1429,0.04189141651031895,high_traffic,normal,needs_attention,5.1212,very_high
+2021-08-21,34083,178,3528,443,0.012997682128920576,high_traffic,global_reach,needs_attention,5.1883,very_high
+2021-08-22,32633,171,3577,438,0.013421996138877823,normal,normal,normal,4.9733,high
+2021-08-23,29808,175,3456,444,0.014895330112721417,normal,normal,normal,4.7308,normal
+2021-08-24,29834,175,3595,469,0.015720319099014547,normal,normal,normal,4.7334,normal
+2021-08-25,30447,176,3526,481,0.015797943968207048,normal,global_reach,needs_attention,4.8047,high

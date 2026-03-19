@@ -191,6 +191,21 @@ def main() -> None:
     )
 
     # ----------------------------------------------------
+    # STEP 2.6C: DEFINE A PERFORMANCE FLAG SIGNAL RECIPE
+    # ----------------------------------------------------
+    # This combines multiple signals to identify observations
+    # that may need attention due to high error rate or latency.
+    performance_flag_signal_recipe: pl.Expr = (
+        pl.when(
+            (pl.col("errors") / pl.col("requests") > 0.02)
+            | (pl.col("total_latency_ms") / pl.col("requests") > 30)
+        )
+        .then(pl.lit("needs_attention"))
+        .otherwise(pl.lit("normal"))
+        .alias("performance_flag")
+    )
+
+    # ----------------------------------------------------
     # STEP 2.7: APPLY THE SIGNAL RECIPES TO THE DATAFRAME
     # ----------------------------------------------------
     # Now we use with_columns() to apply all the recipes
@@ -201,6 +216,7 @@ def main() -> None:
             avg_latency_signal_recipe,
             throughput_signal_recipe,
             high_error_flag_signal_recipe,
+            performance_flag_signal_recipe,
         ]
     )
     LOG.info(
@@ -222,6 +238,7 @@ def main() -> None:
             "avg_latency_ms",
             "throughput",
             "error_flag",
+            "performance_flag",
         ]
     )
 

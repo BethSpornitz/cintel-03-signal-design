@@ -108,3 +108,6 @@ dist/
 
 # WHY: Notebook checkpoint state is generated.
 .ipynb_checkpoints/
+
+# Ignore large traffic CSV
+data/traffic.csv
