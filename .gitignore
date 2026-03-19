@@ -111,3 +111,6 @@ dist/
 
 # Ignore large traffic CSV
 data/traffic.csv
+
+# Ignore
+data/web-service-metrics_bethspornitz.csv

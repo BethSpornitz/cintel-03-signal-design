@@ -108,8 +108,8 @@ def main() -> None:
     LOG.info("Designing signals from daily website traffic metrics...")
 
     # Thresholds chosen from the observed daily activity levels.
-    HIGH_TRAFFIC_THRESHOLD: Final[int] = 33000
-    GLOBAL_REACH_THRESHOLD: Final[int] = 175
+    HIGH_TRAFFIC_THRESHOLD: Final[int] = 750
+    GLOBAL_REACH_THRESHOLD: Final[int] = 80
 
     LOG.info(f"HIGH_TRAFFIC_THRESHOLD: {HIGH_TRAFFIC_THRESHOLD}")
     LOG.info(f"GLOBAL_REACH_THRESHOLD: {GLOBAL_REACH_THRESHOLD}")
