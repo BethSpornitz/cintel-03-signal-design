@@ -49,7 +49,42 @@ For the website traffic dataset, I created and used these signals:
 
 These signals were useful because they turned raw values into indicators that were easier to interpret and compare.
 
-### Experiments
+### What the Signals Mean
+
+For the system metrics dataset, each added signal helps describe system behavior in a more practical way.
+
+- `error_rate` shows the proportion of requests that failed. In real terms, this helps show how often the system is having problems, rather than only showing the raw number of errors.
+- `avg_latency_ms` shows the average response time per request. This matters because a system with slow response times may create a poor user experience even if it is still functioning.
+- `throughput` represents the amount of request activity being handled. In practice, this helps show workload volume.
+- `error_flag` is a simple label that identifies when error rates exceed a defined threshold.
+  For example, if the error rate rises above 2%, the row may be labeled as `high_error`.
+  This allows someone monitoring the system to quickly spot problem periods without needing to manually calculate or review error rates for each observation.
+- `performance_flag` combines multiple conditions, such as high error rate or high latency, into a single signal.
+  For example, even if the error rate is low, very high latency could still trigger a `needs_attention` label.
+  In real-world monitoring, this is important because performance issues are often caused by more than one factor. This signal helps highlight situations where the system may not be failing outright but is still performing poorly.
+
+For the website traffic dataset, the added signals help translate raw event data into daily patterns that are easier to understand.
+
+- `clicks` represents total daily traffic activity. This gives a basic picture of how busy the site was on a given day.
+- `unique_countries` and `unique_cities` show how geographically broad the traffic was. This helps describe reach, not just volume.
+- `unique_links` shows how many different links were involved in the day’s traffic, which gives some sense of content variety or user interest spread.
+- `link_diversity_ratio` compares unique links to total clicks. In practical terms, this helps show whether traffic was concentrated on a few links or spread across many.
+- `traffic_flag` marks days with especially high traffic volume, which can help identify spikes in attention.
+- `reach_flag` marks days with broader international reach, which may suggest wider audience engagement.
+- `traffic_attention_flag` combines volume and reach into one quick signal for days that may deserve review.
+  For example, if a day has unusually high clicks or traffic coming from many countries, this flag will mark it as `needs_attention`.
+  In a real-world scenario, this could help an analyst quickly identify a viral event, a successful campaign, or even suspicious traffic patterns without having to manually review every metric.
+- `traffic_score` provides a simple combined measure of traffic and geographic reach.
+  For example, a day with both high click volume and a large number of countries would produce a higher score than a day with only high clicks.  This helps summarize multiple aspects of performance into a single number that can be tracked over time or compared across days.
+- `traffic_level` groups days into broader categories such as normal, high, or very high traffic, which makes patterns easier to communicate to others.
+  For example, instead of reporting exact click counts, you could say “traffic was very high on this day,” which is easier for non-technical stakeholders to understand.
+  This is especially useful for reporting trends or summarizing performance in dashboards or presentations.
+
+- Real World Example:  For example, a company like Best Buy could use these signals to monitor activity on their website.
+
+If a new product launch or promotion drives a spike in clicks, the `traffic_flag` and `traffic_level` would quickly highlight that increase in activity. At the same time, `unique_countries` and `reach_flag` could show whether the promotion is reaching a broader international audience.
+
+- ### Experiments
 For the system metrics project, I added new derived signals and flag columns. I adjusted thresholds so that the output would more clearly identify rows with higher error behavior or performance concerns.
 
 For the website traffic project, I applied the same process to a different kind of dataset. Since the traffic data was event level, I first grouped it by date to create daily metrics. Then I added ratio signals, flags, and a composite score to make the daily traffic patterns easier to understand.
